@@ -20,7 +20,7 @@
 
         public void InsertAtBeginning(T data)
         {
-            Node<T> newNode = new Node<T>(data) { Next = _head };
+            var newNode = new Node<T>(data) { Next = _head };
 
             // Move the head to the new node
             _head = newNode;
@@ -77,12 +77,11 @@
             }
             Console.WriteLine("null");
         }
-        public int size()
+        private int size()
         {
             return _size;
         }
 
-        // Is this linked list empty?
         public bool IsEmpty()
         {
             return size() == 0;
