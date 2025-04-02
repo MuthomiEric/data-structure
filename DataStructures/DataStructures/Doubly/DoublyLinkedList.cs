@@ -3,12 +3,12 @@
     public class DoublyLinkedList<T>
     {
         private int _size;
-        private Node<T>? _head;
-        private Node<T>? _tail;
+        private Node? _head;
+        private Node? _tail;
 
         public void InsertAtEnd(T data)
         {
-            var newNode = new Node<T>(data);
+            var newNode = new Node(data);
             _size++;
             if (IsEmpty())
             {
@@ -22,7 +22,7 @@
 
         public void InsertAtBeginning(T data)
         {
-            var newNode = new Node<T>(data) { Next = _head };
+            var newNode = new Node(data) { Next = _head };
             _size++;
             if (IsEmpty())
             {
@@ -98,13 +98,13 @@
             Console.WriteLine("null");
         }
 
-        private class Node<Type>
+        private class Node
         {
-            public Type Data { get; set; }
-            public Node<Type>? Next { get; set; }
-            public Node<Type>? Prev { get; set; }
+            public T Data { get; set; }
+            public Node? Next { get; set; }
+            public Node? Prev { get; set; }
 
-            public Node(Type data)
+            public Node(T data)
             {
                 Data = data;
                 Next = null;

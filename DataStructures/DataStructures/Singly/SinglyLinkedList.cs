@@ -3,12 +3,12 @@
     internal class SinglyLinkedList<T>
     {
         private int _size;
-        private Node<T>? _head = default;
-        private Node<T>? _tail = default;
+        private Node? _head = default;
+        private Node? _tail = default;
 
         public void InsertAtEnd(T data)
         {
-            var newNode = new Node<T>(data);
+            var newNode = new Node(data);
             _size++;
             if (IsEmpty())
             {
@@ -20,7 +20,7 @@
 
         public void InsertAtBeginning(T data)
         {
-            var newNode = new Node<T>(data) { Next = _head };
+            var newNode = new Node(data) { Next = _head };
 
             // Move the head to the new node
             _head = newNode;
@@ -41,7 +41,7 @@
                 _size--;
                 return true;
             }
-            Node<T> temp = _head;
+            var temp = _head;
             while (temp.Next != null && !temp.Next.Data!.Equals(data))
             {
                 temp = temp.Next;
@@ -58,7 +58,7 @@
 
         public bool Search(T data)
         {
-            Node<T>? temp = _head;
+            var temp = _head;
             while (temp != null)
             {
                 if (temp.Data!.Equals(data)) return true;
@@ -69,7 +69,7 @@
 
         public void PrintList()
         {
-            Node<T>? temp = _head;
+            var temp = _head;
             while (temp != null)
             {
                 Console.Write(temp.Data + " -> ");
@@ -86,15 +86,15 @@
         {
             return size() == 0;
         }
-        private class Node<Type>
+        private class Node
         {
-            public Node(Type data)
+            public Node(T data)
             {
                 Data = data;
                 Next = null;
             }
-            public Type Data { get; set; }
-            public Node<Type>? Next { get; set; }
+            public T Data { get; set; }
+            public Node? Next { get; set; }
         }
     }
 }
